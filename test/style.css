@@ -14,7 +14,9 @@ body {
   flex-direction: column;
   gap: 1rem;
 }
-button {
+button,
+div,
+input {
   background-color: inherit;
   color: white;
   font-size: 2rem;
