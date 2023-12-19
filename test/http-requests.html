@@ -7,12 +7,13 @@
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <button type="button" hx-post="http://localhost:5000" hx-target="#response">
-      Data from Server
+    <button type="button" hx-get="http://localhost:5000">
+      Make a GET Request
     </button>
 
-    <div id="response"></div>
-
+    <button type="button" hx-post="http://localhost:5000">
+      Make a POST Request
+    </button>
     <script
       src="https://unpkg.com/htmx.org@1.9.9"
       integrity="sha384-QFjmbokDn2DjBjq+fM+8LUIVrAgqcNW2s0PjAxHETgRn9l4fvX31ZxDxvwQnyMOX"
