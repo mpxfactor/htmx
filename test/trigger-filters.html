@@ -12,15 +12,7 @@
     ></script>
   </head>
   <body>
-    <!-- Triggers are like events => click event, mouseenter, change  -->
-    <div hx-post="http://localhost:5000">Default trigger value is click</div>
-    <div hx-post="http://localhost:5000" hx-trigger="mouseenter">
-      Mouse Enter Event
-    </div>
-    <input
-      type="text"
-      placeholder="Change Event"
-      hx-post="http://localhost:5000"
-    />
+    <div hx-post="http://localhost:5000" hx-trigger="click[111 == '111'] from:#request-button">Filter Trigger</div>
+    <button type="button" id="request-button">Trigger</button>
   </body>
 </html>

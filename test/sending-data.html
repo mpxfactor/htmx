@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTMX</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script
+      src="https://unpkg.com/htmx.org@1.9.9"
+      integrity="sha384-QFjmbokDn2DjBjq+fM+8LUIVrAgqcNW2s0PjAxHETgRn9l4fvX31ZxDxvwQnyMOX"
+      crossorigin="anonymous"
+    ></script>
+
+    <style>
+      p {
+        font-size: 2rem;
+      }
+      button {
+        width: 420px;
+      }
+      button:hover {
+        background-color: rgba(191, 39, 225, 0.623);
+      }
+      button:focus {
+        background-color: rgb(208, 0, 255);
+      }
+      h1 {
+        font-size: 1.5rem;
+      }
+      fieldset {
+        padding: 2rem;
+      }
+      legend {
+        font-size: 1.5rem;
+        color: rgb(178, 76, 246);
+        padding-inline: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <h1 class="htmx-indicator" id="loading-indicator">Loading content...</h1>
+      <h1 id="response"></h1>
+
+      <form>
+        <fieldset>
+          <legend>Form</legend>
+          <input
+            type="email"
+            name="email"
+            placeholder="Email"
+            value="punith@gmail.com"
+          />
+          <br />
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            value="punith"
+          />
+          <br />
+          <button
+            hx-post="http://localhost:5000/echopayload"
+            hx-target="#response"
+            hx-indicator="#loading-indicator"
+          >
+            Submit
+          </button>
+        </fieldset>
+      </form>
+    </section>
+
+    <section>
+      <h1 class="htmx-indicator" id="loading-indicator1">Loading content...</h1>
+      <h1 id="response1"></h1>
+
+      <fieldset>
+        <legend>Not a form</legend>
+        <input
+          type="email"
+          name="email"
+          placeholder="Email"
+          value="punith@gmail.com"
+          id="myemail"
+        />
+        <br />
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          value="punith"
+          id="mypassword"
+        />
+        <br />
+        <button
+          hx-post="http://localhost:5000/echopayload"
+          hx-target="#response1"
+          hx-indicator="#loading-indicator1"
+          hx-include="#myemail, #mypassword"
+        >
+          Submit
+        </button>
+      </fieldset>
+    </section>
+  </body>
+</html>

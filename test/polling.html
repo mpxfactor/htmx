@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTMX</title>
+    <link rel="stylesheet" href="./style.css" />
+
+    <script
+      src="https://unpkg.com/htmx.org@1.9.9"
+      integrity="sha384-QFjmbokDn2DjBjq+fM+8LUIVrAgqcNW2s0PjAxHETgRn9l4fvX31ZxDxvwQnyMOX"
+      crossorigin="anonymous"
+    ></script>
+
+    <style>
+      #scroll {
+        margin-top: 1000px;
+        height: 400px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      h1{
+        border: 1px solid rgb(214, 74, 246);
+        margin-bottom:1rem;
+      }
+      body {
+        display: block;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      hx-post="http://localhost:5000"
+      hx-target="#response"
+      hx-trigger="every 1s"
+      hx-swap="beforeend"
+    >
+      Get content every 5 seconds
+    </div>
+
+    <div id="response"></div>
+  </body>
+</html>

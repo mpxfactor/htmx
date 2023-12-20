@@ -27,6 +27,6 @@ input {
 
 button:hover,
 button:focus {
-  background-color: white;
-  color: black;
+  background-color: rgb(69, 69, 69);
+  color: white;
 }

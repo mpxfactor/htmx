@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTMX</title>
+    <link rel="stylesheet" href="./style.css" />
+
+    <script
+      src="https://unpkg.com/htmx.org@1.9.9"
+      integrity="sha384-QFjmbokDn2DjBjq+fM+8LUIVrAgqcNW2s0PjAxHETgRn9l4fvX31ZxDxvwQnyMOX"
+      crossorigin="anonymous"
+    ></script>
+
+    <style>
+      #scroll {
+        margin-top: 1000px;
+        height: 400px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      body {
+        display: block;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <div
+      hx-get="http://localhost:5000"
+      hx-trigger="revealed"
+      id="load"
+      hx-target="#response"
+    >
+      Filter Trigger
+    </div> -->
+
+    <div id="response"></div>
+    <!-- <div
+      hx-get="http://localhost:5000"
+      hx-trigger="revealed"
+      id="scroll"
+      hx-target="#response"
+    >
+      Filter Trigger
+    </div> -->
+
+    <div
+      hx-get="http://localhost:5000"
+      hx-trigger="intersect threshold:0.5"
+      id="scroll"
+      hx-target="#response"
+    >
+      Filter Trigger
+    </div>
+  </body>
+</html>
