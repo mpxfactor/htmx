@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTMX</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script
+      src="https://unpkg.com/htmx.org@1.9.9"
+      integrity="sha384-QFjmbokDn2DjBjq+fM+8LUIVrAgqcNW2s0PjAxHETgRn9l4fvX31ZxDxvwQnyMOX"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <h1 id="response"></h1>
+    <button
+      type="button"
+      id="requestBtn"
+      hx-post="http://localhost:5000/message"
+      hx-traget="#response"
+    >
+      Make Request
+    </button>
+    <button type="button" onclick="htmx.trigger('#requestBtn', 'htmx:abort')">
+      Cancel Request
+    </button>
+  </body>
+</html>

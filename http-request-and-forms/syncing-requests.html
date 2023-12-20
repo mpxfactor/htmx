@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTMX</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script
+      src="https://unpkg.com/htmx.org@1.9.9"
+      integrity="sha384-QFjmbokDn2DjBjq+fM+8LUIVrAgqcNW2s0PjAxHETgRn9l4fvX31ZxDxvwQnyMOX"
+      crossorigin="anonymous"
+    ></script>
+
+    <style>
+      hr {
+        width: 800px;
+      }
+    </style>
+  </head>
+  <body>
+    <button
+      id="firstRequest"
+      type="button"
+      hx-post="http://localhost:5000"
+      hx-target="#target1"
+    >
+      First Request
+    </button>
+    <div id="target1"><b>Target 1</b></div>
+    <hr />
+    <button
+      id="secondRequest"
+      type="button"
+      hx-post="http://localhost:5000/message"
+      hx-target="#target2"
+      hx-sync="#firstRequest:queue"
+    >
+      Second Request
+    </button>
+    <div id="target2"><b>Target 2</b></div>
+  </body>
+</html>

@@ -3,6 +3,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import bodyParser from "body-parser";
 import multer from "multer";
+import path from "path";
 
 dotenv.config();
 
@@ -54,7 +55,9 @@ app.post("/echopayload", (req, res, next) => {
 });
 
 app.post("/upload", upload.single("file"), (req, res, next) => {
-  res.send("done");
+  const filePath = req.file.path;
+  console.log(filePath);
+  res.send(`<b>Upload Successful</b>: ${filePath}`);
 });
 
 app.listen(PORT, () => {

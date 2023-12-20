@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTMX</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script
+      src="https://unpkg.com/htmx.org@1.9.9"
+      integrity="sha384-QFjmbokDn2DjBjq+fM+8LUIVrAgqcNW2s0PjAxHETgRn9l4fvX31ZxDxvwQnyMOX"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <h1 id="response"></h1>
+    <form>
+      <input type="file" name="file" />
+      <button
+        hx-post="http://localhost:5000/upload"
+        hx-encoding="multipart/form-data"
+        hx-target="#response"
+        hx-indicator="#loading-indicator"
+      >
+        Upload File
+      </button>
+      <p class="htmx-indicator" id="loading-indicator">Loading...</p>
+    </form>
+  </body>
+</html>
