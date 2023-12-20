@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTMX</title>
+    <link rel="stylesheet" href="./style.css" />
+
+    <script
+      src="https://unpkg.com/htmx.org@1.9.9"
+      integrity="sha384-QFjmbokDn2DjBjq+fM+8LUIVrAgqcNW2s0PjAxHETgRn9l4fvX31ZxDxvwQnyMOX"
+      crossorigin="anonymous"
+    ></script>
+
+    <style>
+      p {
+        font-size: 2rem;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="response"></h1>
+    <h1 id="loading-indicator" class="htmx-indicator">Loading...</h1>
+    <button
+      hx-post="http://localhost:5000/message"
+      hx-target="#response"
+      hx-confirm="Are you sure you want to send data?"
+      hx-indicator="#loading-indicator"
+    >
+      Click here
+    </button>
+  </body>
+</html>
